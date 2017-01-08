@@ -20,8 +20,13 @@ class MoveableBlock(Block):
     def __init__(self, game, x, y, color):
         Block.__init__(self, game, x, y, color)
 
-    def Move(self, x, y):
-        return self.game.grid.move(self.x, self.y, x, y)
+    def move(self, x, y):
+        if self._game.grid.move(self.x, self.y, x, y):
+            self.x = x
+            self.y = y
+            return True
+
+        return False
 
 
 class MovingBlock(MoveableBlock):

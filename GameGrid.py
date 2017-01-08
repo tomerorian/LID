@@ -1,5 +1,7 @@
 from collections import defaultdict
-from Game import BLOCK_DIMENTION
+from Game import BLOCK_DIMENTION, FOOD_UUID
+from Cell import Cell
+from Food import Food
 
 class GameGrid:
     def __init__(self, screen):
@@ -34,3 +36,9 @@ class GameGrid:
 
     def get_height(self):
         return self._screen.get_height() / BLOCK_DIMENTION
+
+    def get(self, x, y):
+        if self._grid[x][y] is None:
+            return None
+
+        return self._grid[x][y]
