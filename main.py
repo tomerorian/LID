@@ -17,10 +17,10 @@ class ExampleLogic:
         pass
 
     def on_enemies_detected(self, cell, enemies):
-        cell.move_toward(enemies[0])
+        cell.move_toward(enemies[randint(0, len(enemies)-1)])
 
     def on_food_detected(self, cell, food):
-        cell.move_toward(food[0])
+        cell.move_toward(food[randint(0, len(food)-1)])
 
     def on_idle(self, cell):
         cell.move_random()
@@ -40,7 +40,7 @@ def debug_random_moving_blocks(blocks, game):
                 block = None
 
 def debug_random_cells(blocks, game):
-    for i in range(0, 1000):
+    for i in range(0, 2000):
         block = None
         while block is None:
             block = Cell(game, \
